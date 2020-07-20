@@ -11,10 +11,6 @@ class ArticleSpider(scrapy.Spider):
 
     def parse(self, response):
         
-
-        
-
-
         for article in response.xpath("//div[@class='StandardArticle_inner-container']"):
 
             content_list = []
@@ -28,6 +24,7 @@ class ArticleSpider(scrapy.Spider):
             yield {
                 'title' : article.xpath(".//h1/text()").get(),
                 'content' : content,
-
+                'author_editor' : article.xpath(".//div[@class='Attribution_attribution']/p/text()").get()
             }
+
 

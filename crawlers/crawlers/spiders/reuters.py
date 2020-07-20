@@ -5,12 +5,15 @@ import scrapy
 class ReutersSpider(scrapy.Spider):
     name = 'reuters'
     allowed_domains = ['in.reuters.com']
+
+    # here, list down the URLS for dynamic Scrapping
     start_urls = ['https://in.reuters.com/news/archive/rates-rss']
 
     def parse(self, response):
     
         for article in response.xpath("//div[@class='news-headline-list  ']/article[@class='story ']"):
             yield {
+                # mention the xpath for the element to be captured.
                 'title' : article.xpath(".//div[@class='story-content']/a/h3/text()").get(),
                 'url' : article.xpath(".//div[@class='story-content']/a/@href").get(),
                 'press_release' : article.xpath(".//div[@class='story-content']/time[@class='article-time']/span/text()").get(),

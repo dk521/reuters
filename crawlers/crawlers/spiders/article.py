@@ -19,8 +19,8 @@ class ArticleSpider(scrapy.Spider):
 
             content_list = []
             for i in response.xpath("//div[@class='StandardArticleBody_body']/p"):
-                print(i.xpath('string()').extract()[0])
-                print(type(i.xpath('string()').extract()))
+                #print(i.xpath('string()').extract()[0])
+                #print(type(i.xpath('string()').extract()))
                 content_list.append(i.xpath('string()').extract()[0])
             
             content = ' '.join(content_list)

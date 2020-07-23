@@ -16,7 +16,8 @@ class ReutersSpider(scrapy.Spider):
 
     # here, list down the URLS for dynamic Scrapping
     start_urls = ['https://in.reuters.com/news/archive/rates-rss']
-
+    # start_urls = ['https://in.reuters.com/news/science']
+    
 
     def parse(self, response):
     
@@ -79,4 +80,5 @@ class ReutersSpider(scrapy.Spider):
 # reactor.run()
 
 # cmd : scrapy crawl reuters -o crawlers/spiders/output.csv
+
 

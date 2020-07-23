@@ -75,11 +75,8 @@ def crawl():
     yield runner.crawl(ArticleSpider)
     reactor.stop()
 
-
-if __name__ == '__main__':
-
-    crawl()
-    reactor.run()
+crawl()
+reactor.run()
 
 # cmd : scrapy crawl reuters -o crawlers/spiders/output.csv
 

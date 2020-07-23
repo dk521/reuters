@@ -40,6 +40,7 @@ class ArticleSpider(scrapy.Spider):
                 'author_editor' : article.xpath(".//div[@class='Attribution_attribution']/p/text()").get()
             }
             
+            
 
     
         

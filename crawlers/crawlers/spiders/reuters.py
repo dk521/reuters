@@ -66,17 +66,17 @@ class ReutersSpider(scrapy.Spider):
 
 
 
-configure_logging()
-runner = CrawlerRunner()
+# configure_logging()
+# runner = CrawlerRunner()
 
-@defer.inlineCallbacks
-def crawl():
-    yield runner.crawl(ReutersSpider)
-    yield runner.crawl(ArticleSpider)
-    reactor.stop()
+# @defer.inlineCallbacks
+# def crawl():
+#     yield runner.crawl(ReutersSpider)
+#     yield runner.crawl(ArticleSpider)
+#     reactor.stop()
 
-crawl()
-reactor.run()
+# crawl()
+# reactor.run()
 
 # cmd : scrapy crawl reuters -o crawlers/spiders/output.csv
 

@@ -11,11 +11,10 @@ class ArticleSpider(scrapy.Spider):
     # Replace this for new links to be crawled
     # start_urls = ['http://in.reuters.com/article/us-china-economy-lpr/china-keeps-lending-benchmark-lpr-steady-for-third-month-as-expected-idINKCN24L04R'] 
         
-
     def start_requests(self):
 
         df = pd.read_csv('output.csv')        
-        # print(df.url.head())
+        print(df.url.head())
         urls = []
         for i in df.url:
             urls.append('http://in.reuters.com'+str(i))
@@ -25,8 +24,6 @@ class ArticleSpider(scrapy.Spider):
 
         start_urls = reversed( urls )
         return [ scrapy.Request(url = start_url) for start_url in start_urls ]
-
-
 
     def parse(self, response):
         for article in response.xpath("//div[@class='StandardArticle_inner-container']"):
@@ -42,6 +39,9 @@ class ArticleSpider(scrapy.Spider):
                 'content' : content,
                 'author_editor' : article.xpath(".//div[@class='Attribution_attribution']/p/text()").get()
             }
+            
+
+    
         
 
 
